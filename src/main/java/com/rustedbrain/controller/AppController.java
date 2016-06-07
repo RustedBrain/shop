@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Created by alex on 06.06.16.
- */
 @Controller
 public class AppController {
 
@@ -33,7 +30,7 @@ public class AppController {
 
         model.addAttribute("message", "Welcome " + name);
         model.addAttribute("counter", ++counter);
-        logger.debug("[welcomeName] counter : {}", counter);
+        logger.debug("[welcomeName] counter : {}", counter );
         return VIEW_INDEX;
 
     }
