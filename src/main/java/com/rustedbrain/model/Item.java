@@ -9,7 +9,7 @@ import javax.persistence.Enumerated;
  * Created by alex on 06.06.16.
  */
 @Entity
-public abstract class Item extends DatabaseEntity{
+public abstract class Item extends DatabaseEntity {
 
     @Column(name = "price", nullable = false)
     private double price;
@@ -18,9 +18,13 @@ public abstract class Item extends DatabaseEntity{
     @Column(name = "weight")
     private double weight;
     @Enumerated(value = EnumType.STRING)
-    private Category category;
+    private ItemCategory category;
+    @Enumerated(value = EnumType.STRING)
+    private ItemStyle style;
     @Column(name = "discount")
     private double discount;
+    @Column(name = "isMale")
+    private boolean isMale;
 
     @Override
     public boolean equals(Object o) {
@@ -42,11 +46,11 @@ public abstract class Item extends DatabaseEntity{
         return result;
     }
 
-    public Category getCategory() {
+    public ItemCategory getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(ItemCategory category) {
         this.category = category;
     }
 
@@ -74,7 +78,11 @@ public abstract class Item extends DatabaseEntity{
         this.weight = weight;
     }
 
-    public enum Category{
-        PANTS, BOOTS
+    public enum ItemCategory {
+        WRISTS, NECKLESS, RINGS
+    }
+
+    public enum ItemStyle {
+        CLASSIC, GOTHIC, MODERN
     }
 }

@@ -2,7 +2,7 @@ package com.rustedbrain.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -20,9 +20,9 @@ public class User extends DatabaseEntity {
     @Column(name = "totalPriceSpent")
     private double totalPriceSpent;
 
-    @OneToMany(mappedBy="User")
+    @ManyToMany
     private ArrayList<Item> itemsBought;
-    @OneToMany(mappedBy="User")
+    @ManyToMany
     private ArrayList<Item> itemsBucket;
 
     @Override

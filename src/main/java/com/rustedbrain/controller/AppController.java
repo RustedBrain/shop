@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AppController {
 
-    private static int counter = 0;
     private static final String VIEW_INDEX = "index";
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(AppController.class);
+    private static int counter = 0;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
@@ -26,7 +26,6 @@ public class AppController {
 
         // Spring uses InternalResourceViewResolver and return back index.jsp
         return VIEW_INDEX;
-
     }
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)

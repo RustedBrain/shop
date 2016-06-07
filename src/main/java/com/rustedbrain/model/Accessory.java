@@ -4,10 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class Cloth extends Item implements Comparable<Cloth>{
+public class Accessory extends Item implements Comparable<Accessory> {
 
-    @Column(name = "isMale")
-    private boolean isMale;
+
     @Column(name = "size", nullable = false)
     private double size;
 
@@ -19,16 +18,8 @@ public class Cloth extends Item implements Comparable<Cloth>{
         this.size = size;
     }
 
-    public boolean isMale() {
-        return isMale;
-    }
-
-    public void setMale(boolean male) {
-        isMale = male;
-    }
-
     @Override
-    public int compareTo(Cloth o) {
+    public int compareTo(Accessory o) {
         return Double.compare(this.size, o.size);
     }
 }
