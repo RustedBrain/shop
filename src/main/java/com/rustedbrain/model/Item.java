@@ -11,7 +11,7 @@ import javax.persistence.Enumerated;
 @Entity
 public abstract class Item extends DatabaseEntity {
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "price")
     private double price;
     @Column(name = "description")
     private String description;
@@ -25,6 +25,15 @@ public abstract class Item extends DatabaseEntity {
     private double discount;
     @Column(name = "isMale")
     private boolean isMale;
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "price=" + price +
+                ", style=" + style +
+                ", isMale=" + isMale +
+                "} " + super.toString();
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -76,6 +85,30 @@ public abstract class Item extends DatabaseEntity {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public ItemStyle getStyle() {
+        return style;
+    }
+
+    public void setStyle(ItemStyle style) {
+        this.style = style;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public boolean isMale() {
+        return isMale;
+    }
+
+    public void setMale(boolean male) {
+        isMale = male;
     }
 
     public enum ItemCategory {

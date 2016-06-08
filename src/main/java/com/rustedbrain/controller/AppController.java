@@ -14,6 +14,7 @@ public class AppController {
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(AppController.class);
     private static int counter = 0;
 
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
 
