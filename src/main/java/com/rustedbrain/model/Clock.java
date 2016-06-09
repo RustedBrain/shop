@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-/**
- * Created by alex on 06.06.16.
- */
+
 @Entity
 public class Clock extends Item {
 
