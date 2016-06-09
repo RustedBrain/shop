@@ -12,7 +12,7 @@ abstract class DatabaseEntity implements Serializable{
     private int id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "name",nullable = false)
+    @Column(name = "registrationDate", nullable = false)
     private Date registrationDate;
 
     public int getId() {
@@ -37,5 +37,13 @@ abstract class DatabaseEntity implements Serializable{
 
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "DatabaseEntity{" +
+                "name='" + name + '\'' +
+                ", registrationDate=" + registrationDate +
+                '}';
     }
 }

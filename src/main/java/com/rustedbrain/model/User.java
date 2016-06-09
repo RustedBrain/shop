@@ -1,10 +1,8 @@
 package com.rustedbrain.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.sql.Date;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User extends DatabaseEntity {
@@ -20,10 +18,20 @@ public class User extends DatabaseEntity {
     @Column(name = "totalPriceSpent")
     private double totalPriceSpent;
 
-    @ManyToMany
-    private ArrayList<Item> itemsBought;
-    @ManyToMany
-    private ArrayList<Item> itemsBucket;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "itembought_user",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "item_id")})
+    private List<Item> itemsBought;
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "itembucket_user",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "item_id")})
+    private List<Item> itemsBucket;
 
     @Override
     public boolean equals(Object o) {
@@ -58,19 +66,19 @@ public class User extends DatabaseEntity {
         this.totalPriceSpent = totalPriceSpent;
     }
 
-    public ArrayList<Item> getItemsBought() {
+    public List<Item> getItemsBought() {
         return itemsBought;
     }
 
-    public void setItemsBought(ArrayList<Item> itemsBought) {
+    public void setItemsBought(List<Item> itemsBought) {
         this.itemsBought = itemsBought;
     }
 
-    public ArrayList<Item> getItemsBucket() {
+    public List<Item> getItemsBucket() {
         return itemsBucket;
     }
 
-    public void setItemsBucket(ArrayList<Item> itemsBucket) {
+    public void setItemsBucket(List<Item> itemsBucket) {
         this.itemsBucket = itemsBucket;
     }
 
