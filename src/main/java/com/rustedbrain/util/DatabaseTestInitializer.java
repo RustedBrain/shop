@@ -86,4 +86,12 @@ public class DatabaseTestInitializer {
         user.setBirthday(new Date(System.currentTimeMillis() - i));
         return user;
     }
+
+    public static void main(String[] args) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        initUsersItemsBought(session);
+        System.out.println(session.createCriteria(User.class).list());
+        session.close();
+    }
+
 }
