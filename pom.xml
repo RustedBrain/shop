@@ -9,17 +9,23 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <spring.version>4.1.1.RELEASE</spring.version>
         <jstl.version>1.2</jstl.version>
         <junit.version>4.11</junit.version>
         <logback.version>1.0.13</logback.version>
-        <jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+        <tomcat.version>7.0.69</tomcat.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
         <postgresql.version>9.4.1208.jre7</postgresql.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.6.3</version>
+        </dependency>
 
         <!-- Unit Test -->
         <dependency>
@@ -42,15 +48,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${jcl-over-slf4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${tomcat.version}</version>
         </dependency>
 
         <dependency>
@@ -92,10 +92,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.12.1.1</version>
-            <scope>runtime</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1208.jre7</version>
         </dependency>
 
     </dependencies>
@@ -104,20 +103,6 @@
         <finalName>ShopWebApp</finalName>
 
         <plugins>
-            <!-- Eclipse project -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <!-- Always download and attach dependencies source code -->
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>false</downloadJavadocs>
-                    <!-- Avoid type mvn eclipse:eclipse -Dwtpversion=2.0 -->
-                    <wtpversion>2.0</wtpversion>
-                </configuration>
-            </plugin>
-
             <!-- Set JDK Compiler Level -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,38 +1,60 @@
 package com.rustedbrain.controller;
 
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-@Controller
-public class AppController {
 
-    private static final String VIEW_INDEX = "index";
-    private final static org.slf4j.Logger logger = LoggerFactory.getLogger(AppController.class);
-    private static int counter = 0;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rustedbrain.util.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcome(ModelMap model) {
+@WebServlet(
+        name = "AppServlet",
+        description = "This is main app servlet",
+        urlPatterns = "/AppServlet"
+)
+public class AppController extends HttpServlet {
 
-        model.addAttribute("message", "Welcome");
-        model.addAttribute("counter", ++counter);
-        logger.debug("[welcome] counter : {}", counter);
+    private ObjectMapper mapper;
+    private ServletContext context;
+    private SessionFactory factory;
 
-        // Spring uses InternalResourceViewResolver and return back index.jsp
-        return VIEW_INDEX;
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        this.mapper = new ObjectMapper();
+        this.context = config.getServletContext();
+        this.factory = HibernateUtil.getSessionFactory();
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public String welcomeName(@PathVariable String name, ModelMap model) {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        model.addAttribute("message", "Welcome " + name);
-        model.addAttribute("counter", ++counter);
-        logger.debug("[welcomeName] counter : {}", counter );
-        return VIEW_INDEX;
+        ControllerAction action = ControllerAction.valueOf(req.getParameter("action").trim());
+        String targetId = req.getParameter("id");
+        StringBuilder sb = new StringBuilder();
 
+        Session session = factory.openSession();
+//        switch (action) {
+//            case LOGIN: {
+//                User user = DatabaseUtil.getUser(req.getParameter("userName"), req.getParameter("userPassword"), session);
+//                if (user != null)
+//
+//            }
+//            default: {
+//                context.getRequestDispatcher("/error.jsp").forward(req, resp);
+//            }
+//        }
+
+        session.close();
     }
+
+
 
 }
