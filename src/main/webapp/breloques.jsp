@@ -4,16 +4,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="css/view_style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css"/>
 </head>
 
 <body>
 <div id="content" class="float_r">
-    <h1>Braslets</h1>
+    <h1>Breloques</h1>
     <div class="product_box">
         <table>
             <tr bgcolor="black">
                 <td>name</td>
-                <td>size</td>
                 <td>category</td>
                 <td>style</td>
                 <td>description</td>
@@ -22,10 +22,9 @@
                 <td>weight</td>
                 <td>price</td>
             </tr>
-            <c:forEach var="elem" items="${braslets}" varStatus="status">
+            <c:forEach var="elem" items="${breloques}" varStatus="status">
                 <tr>
                     <td><c:out value="${ elem.name }"/></td>
-                    <td><c:out value="${ elem.size }"/></td>
                     <td><c:out value="${ elem.category }"/></td>
                     <td><c:out value="${ elem.style }"/></td>
                     <td><c:out value="${ elem.description }"/></td>

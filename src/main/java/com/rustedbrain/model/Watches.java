@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class Clock extends Item {
+public class Watches extends Item {
 
     @Enumerated(value = EnumType.STRING)
     private ClockType type;

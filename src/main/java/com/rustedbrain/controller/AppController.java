@@ -2,10 +2,10 @@ package com.rustedbrain.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rustedbrain.util.database.HibernateUtil;
-import org.hibernate.Session;
+import com.rustedbrain.util.TestEntitys;
 import org.hibernate.SessionFactory;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -30,31 +30,46 @@ public class AppController extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         this.mapper = new ObjectMapper();
         this.context = config.getServletContext();
-        this.factory = HibernateUtil.getSessionFactory();
+        //this.factory = HibernateUtil.getSessionFactory();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ControllerAction action = ControllerAction.valueOf(req.getParameter("action").trim());
-        String targetId = req.getParameter("id");
-        StringBuilder sb = new StringBuilder();
+        RequestDispatcher requestDispatcher;
 
-        Session session = factory.openSession();
-//        switch (action) {
-//            case LOGIN: {
-//                Account user = DatabaseUtil.getUser(req.getParameter("userName"), req.getParameter("userPassword"), session);
-//                if (user != null)
-//
-//            }
-//            default: {
-//                context.getRequestDispatcher("/error.jsp").forward(req, resp);
-//            }
-//        }
+        switch (action) {
+            case getAll: {
+                req.setAttribute("all", TestEntitys.getEarings());
+                requestDispatcher = req.getRequestDispatcher("/products.jsp");
+            }
+            break;
+            case getEarings: {
+                req.setAttribute("earings", TestEntitys.getEarings());
+                requestDispatcher = req.getRequestDispatcher("/earings.jsp");
+            }
+            break;
+            case getWatches: {
+                req.setAttribute("watches", TestEntitys.getWatches());
+                requestDispatcher = req.getRequestDispatcher("/watches.jsp");
+            }
+            break;
+            case getBraslets: {
+                req.setAttribute("braslets", TestEntitys.getEarings());
+                requestDispatcher = req.getRequestDispatcher("/braslets.jsp");
+            }
+            break;
+            case getBreloques: {
+                req.setAttribute("breloques", TestEntitys.getWatches());
+                requestDispatcher = req.getRequestDispatcher("/breloques.jsp");
+            }
+            break;
+            default:{
+                requestDispatcher = req.getRequestDispatcher("/error.jsp");
+            }
+        }
 
-        session.close();
+        requestDispatcher.forward(req, resp);
     }
-
-
-
 }

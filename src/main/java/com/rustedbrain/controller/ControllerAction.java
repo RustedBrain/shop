@@ -5,6 +5,6 @@ package com.rustedbrain.controller;
  */
 public enum ControllerAction {
 
-    LOGIN
+    getWatches, getBraslets, getBreloques, getAll, getEarings
 
 }

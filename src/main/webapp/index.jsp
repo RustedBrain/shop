@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -49,7 +50,7 @@
 <div id="templatemo_wrapper">
     <div id="templatemo_header">
         <div id="site_title">
-            <h1><a href="index.html">Hand-made store</a></h1>
+            <h1><a href="index.jsp">Hand-made store</a></h1>
         </div>
 
         <div id="header_right">
@@ -62,12 +63,12 @@
     <div id="templatemo_menu">
         <div id="top_nav" class="ddsmoothmenu">
             <ul>
-                <li><a href="index.html" class="selected">Home</a></li>
+                <li><a href="index.jsp" class="selected">Home</a></li>
                 <li><a href="products.jsp" target="Frame">Products</a>
                     <ul>
                         <li><a href="earings.jsp" target="Frame">Earings</a></li>
                         <li><a href="braslets.jsp" target="Frame">Braslets</a></li>
-                        <li><a href="breloque.jsp" target="Frame">Breloque</a></li>
+                        <li><a href="breloques.jsp" target="Frame">Breloque</a></li>
                         <li><a href="watches.jsp" target="Frame">Watches</a></li>
                     </ul>
                 </li>
@@ -92,11 +93,11 @@
                 <h3>Products</h3>
                 <div class="content">
                     <ul class="sidebar_list">
-                        <li class="first"><a href="products.jsp" target="Frame">All</a></li>
-                        <li><a href="earings.jsp" target="Frame">Earings</a></li>
-                        <li><a href="braslets.jsp" target="Frame">Braslets</a></li>
-                        <li><a href="breloque.jsp" target="Frame">Breloque</a></li>
-                        <li><a href="watches.jsp" target="Frame">Watches</a></li>
+                        <li class="first"><a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">All</a></li>
+                        <li><a href="${pageContext.request.contextPath}/AppServlet?action=getEarings" target="Frame">Earings</a></li>
+                        <li><a href="${pageContext.request.contextPath}/AppServlet?action=getBraslets" target="Frame">Braslets</a></li>
+                        <li><a href="${pageContext.request.contextPath}/AppServlet?action=getBreloques" target="Frame">Breloques</a></li>
+                        <li><a href="${pageContext.request.contextPath}/AppServlet?action=getWatches" target="Frame">Watches</a></li>
                     </ul>
                 </div>
             </div>
@@ -108,9 +109,9 @@
     </div> <!-- END of main -->
 
     <div id="templatemo_footer">
-        <p>	<a href="index.html">Home</a> | <a href="products.jsp" target="Frame">Products</a> | <a href="faqs.html" target="Frame">FAQs</a> | <a href="checkout.jsp" target="Frame">Chekcout</a> | <a href="contact.html" target="Frame">Contacts</a>
+        <p>	<a href="index.jsp">Home</a> | <a href="products.jsp" target="Frame">Products</a> | <a href="faqs.html" target="Frame">FAQs</a> | <a href="checkout.jsp" target="Frame">Chekcout</a> | <a href="contact.html" target="Frame">Contacts</a>
         </p>
-        <font color="#0099CC">Copyright © 2016</font> <font color="#000033">Samotiazhko. Muhin. Kiparoidze</font>
+        <span style="color: #0099CC; ">Copyright © 2016</span> <span style="color: #000033; ">Samotiazhko. Muhin. Kiparoidze</span>
     </div> <!-- END of footer -->
 
 </div> <!-- END of wrapper -->

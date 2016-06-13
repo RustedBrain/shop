@@ -14,7 +14,7 @@
         <property name="hbm2ddl.auto">create-drop</property>
 
         <mapping class="com.rustedbrain.model.Account"/>
-        <mapping class="com.rustedbrain.model.Clock"/>
+        <mapping class="com.rustedbrain.model.Watches"/>
         <mapping class="com.rustedbrain.model.Accessory"/>
     </session-factory>
 </hibernate-configuration>

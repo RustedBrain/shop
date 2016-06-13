@@ -2,6 +2,7 @@ package com.rustedbrain.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -21,6 +22,8 @@ public abstract class Item extends DatabaseEntity {
     private double discount;
     @Column(name = "isMale")
     private boolean isMale;
+    @Enumerated(value = EnumType.STRING)
+    private ItemColor color;
 
     @Override
     public String toString() {
@@ -40,6 +43,7 @@ public abstract class Item extends DatabaseEntity {
 
         return Double.compare(item.price, price) == 0 && category.equals(item.category);
     }
+
 
     @Override
     public int hashCode() {
@@ -107,11 +111,23 @@ public abstract class Item extends DatabaseEntity {
         isMale = male;
     }
 
+    public ItemColor getColor() {
+        return color;
+    }
+
+    public void setColor(ItemColor color) {
+        this.color = color;
+    }
+
     public enum ItemCategory {
-        WRISTS, NECKLESS, RINGS
+        Earings, Braslets, Breloque, Watches
     }
 
     public enum ItemStyle {
         CLASSIC, GOTHIC, MODERN
+    }
+
+    public enum ItemColor {
+        BLACK, WHITE, GREEN, GREY, YELLOW, BROWN, PURPULE, MAROON, RED
     }
 }

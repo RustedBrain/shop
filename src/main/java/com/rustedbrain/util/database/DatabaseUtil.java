@@ -1,6 +1,6 @@
 package com.rustedbrain.util.database;
 
-import com.rustedbrain.model.Clock;
+import com.rustedbrain.model.Watches;
 import com.rustedbrain.model.Account;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -19,17 +19,17 @@ public class DatabaseUtil {
                 .uniqueResult();
     }
 
-    public static List getClockList(Clock.ClockType type, Session session) {
+    public static List getClockList(Watches.ClockType type, Session session) {
         if (type != null)
             switch (type) {
                 case ECLOCK: {
-                    return session.createCriteria(Clock.class).add(Restrictions.eq("type", "ECLOCK")).list();
+                    return session.createCriteria(Watches.class).add(Restrictions.eq("type", "ECLOCK")).list();
                 }
                 case MECHClOCK: {
-                    return session.createCriteria(Clock.class).add(Restrictions.eq("type", "MECHCLOCK")).list();
+                    return session.createCriteria(Watches.class).add(Restrictions.eq("type", "MECHCLOCK")).list();
                 }
             }
-        return session.createCriteria(Clock.class).list();
+        return session.createCriteria(Watches.class).list();
     }
 
     public static void main(String[] args) {
