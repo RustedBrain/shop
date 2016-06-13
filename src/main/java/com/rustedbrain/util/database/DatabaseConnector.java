@@ -1,4 +1,4 @@
-package com.rustedbrain.util;
+package com.rustedbrain.util.database;
 
 import java.net.URI;
 import java.net.URISyntaxException;

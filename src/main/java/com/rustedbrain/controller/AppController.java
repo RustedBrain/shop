@@ -2,7 +2,7 @@ package com.rustedbrain.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rustedbrain.util.HibernateUtil;
+import com.rustedbrain.util.database.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -43,7 +43,7 @@ public class AppController extends HttpServlet {
         Session session = factory.openSession();
 //        switch (action) {
 //            case LOGIN: {
-//                User user = DatabaseUtil.getUser(req.getParameter("userName"), req.getParameter("userPassword"), session);
+//                Account user = DatabaseUtil.getUser(req.getParameter("userName"), req.getParameter("userPassword"), session);
 //                if (user != null)
 //
 //            }

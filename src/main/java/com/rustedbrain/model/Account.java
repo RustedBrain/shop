@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-public class User extends DatabaseEntity {
+public class Account extends DatabaseEntity {
 
     @Column(name = "surname")
     private String surname;
@@ -36,9 +36,9 @@ public class User extends DatabaseEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (!(o instanceof Account)) return false;
 
-        User user = (User) o;
+        Account user = (Account) o;
 
         return Double.compare(user.totalPriceSpent, totalPriceSpent) == 0;
 
@@ -52,7 +52,7 @@ public class User extends DatabaseEntity {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Account{" +
                 "login='" + login + '\'' +
                 ", birthday=" + birthday +
                 '}';

@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-@Entity
+@MappedSuperclass
+@Inheritance(strategy=InheritanceType.JOINED)
 abstract class DatabaseEntity implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     @Column(name = "name", nullable = false)
     private String name;

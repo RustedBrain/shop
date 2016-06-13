@@ -1,18 +1,14 @@
 package com.rustedbrain.util.test;
 
 import com.rustedbrain.model.Accessory;
+import com.rustedbrain.model.Account;
 import com.rustedbrain.model.Item;
-import com.rustedbrain.model.User;
-import com.rustedbrain.util.DatabaseConnector;
-import com.rustedbrain.util.HibernateUtil;
+import com.rustedbrain.util.database.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +31,13 @@ public class DatabaseTestInitializer {
     }
 
     public static void initUsersItemsInBucket(Session session) {
-        List objectUsers = session.createCriteria(User.class).list();
+        List objectUsers = session.createCriteria(Account.class).list();
         if (objectUsers == null || objectUsers.isEmpty()) {
             initUsers(session);
-            objectUsers = session.createCriteria(User.class).list();
+            objectUsers = session.createCriteria(Account.class).list();
         }
         for (Object objectUser : objectUsers) {
-            User user = (User) objectUser;
+            Account user = (Account) objectUser;
             List<Item> items = new ArrayList<>();
             for (int i = 0; i < TEST_INIT_USERS_ITEMS_IN_BUCKET_COUNT; i++) {
                 items.add(createAccessory(i));
@@ -52,13 +48,13 @@ public class DatabaseTestInitializer {
     }
 
     public static void initUsersItemsBought(Session session) {
-        List objectUsers = session.createCriteria(User.class).list();
+        List objectUsers = session.createCriteria(Account.class).list();
         if (objectUsers == null || objectUsers.isEmpty()) {
             initUsers(session);
-            objectUsers = session.createCriteria(User.class).list();
+            objectUsers = session.createCriteria(Account.class).list();
         }
         for (Object objectUser : objectUsers) {
-            User user = (User) objectUser;
+            Account user = (Account) objectUser;
             List<Item> items = new ArrayList<>();
             for (int i = 0; i < TEST_INIT_USERS_ITEMS_BOUGHT_COUNT; i++) {
                 items.add(createAccessory(i));
@@ -84,8 +80,8 @@ public class DatabaseTestInitializer {
         return accessory;
     }
 
-    public static User createUser(int i) {
-        User user = new User();
+    public static Account createUser(int i) {
+        Account user = new Account();
         user.setLogin("Login" + i);
         user.setName("Name" + i);
         user.setSurname("Surname" + i);
@@ -98,7 +94,7 @@ public class DatabaseTestInitializer {
     public static void main(String[] args) throws URISyntaxException, SQLException {
 //        Session session = HibernateUtil.getSessionFactory().openSession();
 //        initUsersItemsBought(session);
-//        System.out.println(session.createCriteria(User.class).list());
+//        System.out.println(session.createCriteria(Account.class).list());
 //        session.close();
         //Connection connection = DatabaseConnector.getSSLConnection();
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -106,7 +102,7 @@ public class DatabaseTestInitializer {
         initUsersItemsBought(session);
         session.close();
         Session session1 = sessionFactory.openSession();
-        System.out.println(session1.createCriteria(User.class).list());
+        System.out.println(session1.createCriteria(Account.class).list());
         session1.close();
         sessionFactory.close();
     }

@@ -1,14 +1,13 @@
 package com.rustedbrain.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+
+import javax.persistence.*;
 
 /**
  * Created by alex on 06.06.16.
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item extends DatabaseEntity {
 
     @Column(name = "price")

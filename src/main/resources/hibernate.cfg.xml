@@ -13,7 +13,7 @@
         <property name="show_sql">false</property>
         <property name="hbm2ddl.auto">create-drop</property>
 
-        <mapping class="com.rustedbrain.model.User"/>
+        <mapping class="com.rustedbrain.model.Account"/>
         <mapping class="com.rustedbrain.model.Clock"/>
         <mapping class="com.rustedbrain.model.Accessory"/>
     </session-factory>

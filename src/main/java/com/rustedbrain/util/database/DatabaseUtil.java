@@ -1,8 +1,7 @@
-package com.rustedbrain.controller;
+package com.rustedbrain.util.database;
 
 import com.rustedbrain.model.Clock;
-import com.rustedbrain.model.User;
-import com.rustedbrain.util.HibernateUtil;
+import com.rustedbrain.model.Account;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -13,8 +12,8 @@ import java.util.List;
  */
 public class DatabaseUtil {
 
-    public static User getUser(String username, String password, Session session) {
-        return (User) session.createCriteria(User.class)
+    public static Account getUser(String username, String password, Session session) {
+        return (Account) session.createCriteria(Account.class)
                 .add(Restrictions.ilike("login", username))
                 .add(Restrictions.ilike("password", password))
                 .uniqueResult();
