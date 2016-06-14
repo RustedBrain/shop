@@ -16,7 +16,7 @@
                 <input type="text"  style="width:300px;"  />
                 City:
                 <input type="text"  style="width:300px;"  />
-                № of post department:
+                N of post department:
                 <input type="text"  style="width:300px;"  />
             </div>
             

@@ -50,7 +50,6 @@ h3{
 
 .columns {
     margin: 0 0 15px 0;
-
     border-bottom:1px solid #ccc;
     background: transparent url(../images/columns_bg.png) no-repeat 100% 100%;
     border-top:1px solid #ccc;
@@ -82,8 +81,6 @@ a:hover.download {
     display:block;
     font-size: 0.9em;
 }
-
-
 
 .documentation {
     color: #666;

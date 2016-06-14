@@ -32,7 +32,6 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-
             $(".carousel").dualSlider({
                 auto:true,
                 autoDelay: 6000,
@@ -50,7 +49,7 @@
 <div id="templatemo_wrapper">
     <div id="templatemo_header">
         <div id="site_title">
-            <h1><a href="index.jsp">Hand-made store</a></h1>
+            <h1><a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Hand-made store</a></h1>
         </div>
 
         <div id="header_right">
@@ -63,8 +62,8 @@
     <div id="templatemo_menu">
         <div id="top_nav" class="ddsmoothmenu">
             <ul>
-                <li><a href="index.jsp" class="selected">Home</a></li>
-                <li><a href="products.jsp" target="Frame">Products</a>
+                <li><a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Products</a>
                     <ul>
                         <li><a href="earings.jsp" target="Frame">Earings</a></li>
                         <li><a href="braslets.jsp" target="Frame">Braslets</a></li>
@@ -103,13 +102,13 @@
             </div>
         </div>
 
-        <iframe name="Frame" src="products.jsp" width="719" height="700" frameborder="0"></iframe>
+        <iframe name="Frame" src="products.jsp"></iframe>
 
         <div class="cleaner"></div>
     </div> <!-- END of main -->
 
     <div id="templatemo_footer">
-        <p>	<a href="index.jsp">Home</a> | <a href="products.jsp" target="Frame">Products</a> | <a href="faqs.html" target="Frame">FAQs</a> | <a href="checkout.jsp" target="Frame">Chekcout</a> | <a href="contact.html" target="Frame">Contacts</a>
+        <p>	<a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Home</a> | <a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Products</a> | <a href="faqs.html" target="Frame">FAQs</a> | <a href="checkout.jsp" target="Frame">Chekcout</a> | <a href="contact.html" target="Frame">Contacts</a>
         </p>
         <span style="color: #0099CC; ">Copyright © 2016</span> <span style="color: #000033; ">Samotiazhko. Muhin. Kiparoidze</span>
     </div> <!-- END of footer -->

@@ -3,13 +3,21 @@ body {
     padding: 0;
     color: #999;
     font-family: Tahoma, Geneva, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4em;
     background-color: #2e2e2e;
     background-repeat: repeat;
     background-image: url(../images/templatemo_body.jpg)
 }
 
+iframe{
+    width: 74%;
+    height: 800px;
+    frameborder: 0px;
+    marginheight: 0px;
+    marginwidth: 0px;
+
+}
 a, a:link, a:visited {
     color: #08aee3;
     font-weight: normal;
@@ -34,6 +42,14 @@ a.more {
 a.more:hover {
     background: #333;
     text-decoration: none;
+}
+
+tr.products_header {
+	background: #000033;
+	text-align: left;
+    font-weight: bold;
+	color: white;
+    font-size: 12px;
 }
 
 p {
@@ -88,37 +104,31 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;
     font-weight: normal;
 }
-
 h1 {
     font-size: 30px;
     margin: 0 0 30px;
     padding: 5px 0;
 }
-
 h2 {
     font-size: 26px;
     margin: 0 0 25px;
     padding: 5px 0;
 }
-
 h3 {
     font-size: 20px;
     margin: 0 0 20px;
     padding: 0;
 }
-
 h4 {
     font-size: 16px;
     margin: 0 0 15px;
     padding: 0;
 }
-
 h5 {
     font-size: 14px;
     margin: 0 0 10px;
     padding: 0;
 }
-
 h6 {
     font-size: 12px;
     margin: 0 0 5px;
@@ -167,7 +177,8 @@ h6 {
 }
 
 #content {
-    width: 680px;
+    width: 97%;
+    height: 800px;
     background: #f0f0f0;
     border: 1px solid #fff;
     padding: 14px;
@@ -328,12 +339,12 @@ h6 {
 .product_box {
     float: left;
     width: 220px;
-    text-align: center;
+    text-align: left;
     margin: 0 10px 30px 0;
 }
 
 .product_box img {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .product_box h3 {
@@ -346,13 +357,15 @@ h6 {
 .product_box .product_price {
     color: #8fb410;
     font-size: 14px;
-    font-weight: 700
+    font-weight: bold;
 }
 
 .product_box .add_to_card {
+	font-size:14px;
+	font-weight: bold;
     float: left;
     display: block;
-    width: 140px;
+    width: 120px;
     height: 28px;
     line-height: 28px;
     text-align: center;
@@ -368,7 +381,7 @@ h6 {
 
 #contact_form {
     padding: 0;
-    width: 312px;
+    width: 502px;
     margin-bottom: 40px;
 }
 
@@ -396,25 +409,15 @@ h6 {
 }
 
 #contact_form form textarea {
-    width: 300px;
+    width: 500px;
     height: 200px;
     padding: 5px;
     color: #222;
     background: #fff; border: 1px solid #dedede;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Tahoma, Geneva, sans-serif;
     margin-top: 5px;
 }
-
-#contact_form form .submit_btn {
-    padding: 5px 12px;
-    background-color: #000;
-    border: 1px solid #fff;
-    color: #fff;
-    font-size:14px;
-    margin: 10px 0px;
-}
-
 .faq h3 { font-size: 14px; margin: 30px 0 5px }
 
 .content_half {

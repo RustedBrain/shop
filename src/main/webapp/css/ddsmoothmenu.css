@@ -28,7 +28,7 @@
     text-decoration: none;
     outline: none;
     text-align: center;
-    background: url(images/templatemo_menu_divider.png) right center no-repeat
+    background: url(images/templatemo_menu_hover.png) right center no-repeat
 }
 
 * html .ddsmoothmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
