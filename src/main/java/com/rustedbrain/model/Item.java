@@ -120,7 +120,7 @@ public abstract class Item extends DatabaseEntity {
     }
 
     public enum ItemCategory {
-        Earings, Braslets, Breloque, Watches
+        EARINGS, BRASLETS, BRELOQUES, WATCHES
     }
 
     public enum ItemStyle {

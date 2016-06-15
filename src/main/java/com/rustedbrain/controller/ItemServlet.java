@@ -1,9 +1,7 @@
 package com.rustedbrain.controller;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rustedbrain.util.TestEntitys;
-import org.hibernate.SessionFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -14,29 +12,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @WebServlet(
-        name = "AppServlet",
-        description = "This is main app servlet",
-        urlPatterns = "/AppServlet"
+        description = "Servlet that resolve all items requests",
+        urlPatterns = "/ItemServlet"
 )
-public class AppController extends HttpServlet {
+public class ItemServlet extends HttpServlet {
 
-    private ObjectMapper mapper;
     private ServletContext context;
-    private SessionFactory factory;
+    private Logger logger;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        this.mapper = new ObjectMapper();
         this.context = config.getServletContext();
-        //this.factory = HibernateUtil.getSessionFactory();
+        this.logger = Logger.getLogger(AppServlet.class.getName());
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ControllerAction action = ControllerAction.valueOf(req.getParameter("action").trim());
+        SubAction action = SubAction.valueOf(req.getParameter("subAction").trim());
         RequestDispatcher requestDispatcher;
 
         switch (action) {
@@ -65,11 +61,15 @@ public class AppController extends HttpServlet {
                 requestDispatcher = req.getRequestDispatcher("/breloques.jsp");
             }
             break;
-            default:{
+            default: {
                 requestDispatcher = req.getRequestDispatcher("/error.jsp");
             }
         }
-
         requestDispatcher.forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
     }
 }

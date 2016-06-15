@@ -52,7 +52,7 @@ public class TestEntitys {
 
     private static Watches createWatches(int i) {
         Watches watches = new Watches();
-        watches.setName("Watches[" + i + "]");
+        watches.setName("WATCHES[" + i + "]");
         watches.setType(Watches.ClockType.values()[random.nextInt(Watches.ClockType.values().length)]);
         watches.setPrice(i);
         watches.setCategory(Item.ItemCategory.values()[random.nextInt(Item.ItemCategory.values().length)]);

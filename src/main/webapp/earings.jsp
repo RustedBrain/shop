@@ -31,7 +31,13 @@
                     <td><p class="product_price">$<c:out value="${elem.price}"/></p></td>
                     <td>
                         <div class="product_box">
-                            <a href="shoppingcart.html" class="add_to_card">Add to Cart</a>
+                            <form action="${pageContext.request.contextPath}/AppServlet" method="post">
+                                <input type="hidden" name="mainAction" value="getBucket">
+                                <input type="hidden" name="subAction" value="addItem">
+                                <input type="hidden" name="itemCategory" value=${ elem.category }>
+                                <input type="hidden" name="itemId" value=${ elem.id }>
+                                <input type="submit" value="Add to Cart"/>
+                            </form>
                         </div>
                     </td>
                 </tr>

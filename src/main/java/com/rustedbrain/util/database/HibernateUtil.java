@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
  * Created by alex on 07.06.16.
  */
 public class HibernateUtil {
+
     private static SessionFactory sessionFactory;
     private static ServiceRegistry serviceRegistry;
 
@@ -23,6 +24,8 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-        return createSessionFactory();
+        if (sessionFactory == null)
+            createSessionFactory();
+        return sessionFactory;
     }
 }
