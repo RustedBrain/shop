@@ -17,6 +17,7 @@
         <input type="text" style="width:300px;"/>
         City:
         <input type="text" style="width:300px;"/>
+        <br>
         N of post department:
         <input type="text" style="width:300px;"/>
     </div>
@@ -32,6 +33,7 @@
     <div class="cleaner h20"></div>
 
     <h3>Shopping Cart</h3>
+    <c:set var="total" value="${0}"/>
     <c:forEach var="elem" items="${products}" varStatus="status">
         <tr>
             <td><c:out value="${ elem.name }"/></td>
@@ -53,8 +55,10 @@
                 </div>
             </td>
         </tr>
+        <c:set var="total" value="${total + elem.price}" />
     </c:forEach>
-    <h4>TOTAL: <strong>!!!!!!!!!!!!!!!!!!!!!</strong></h4>
+    <br><br><br><br>
+    <h4>TOTAL: <strong><c:out value="${ total }"/></strong></h4>
 
     <p><input type="checkbox"/>I have accepted the Terms of Use.</p><br/>
 
@@ -66,6 +70,3 @@
 
 </body>
 </html>
-
-       
- 

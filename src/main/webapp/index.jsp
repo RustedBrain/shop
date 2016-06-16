@@ -48,13 +48,14 @@
 <div id="templatemo_wrapper">
     <div id="templatemo_header">
         <div id="site_title">
-            <h1><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll" target="Frame">Hand-made store</a>
+            <h1><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"
+                   target="Frame">Hand-made store</a>
             </h1>
         </div>
 
         <div id="header_right">
-            <a href="shoppingcart.jsp" target="Frame">Cart</a> | <a
-                href="${pageContext.request.contextPath}/AppServlet?mainAction=getBucket&amp;subAction=getBucketItems" target="Frame">Chekcout</a>
+            <a href="${pageContext.request.contextPath}/AppServlet?mainAction=getBucket&amp;subAction=getBucketItems"
+               target="Frame">Chekcout</a>
         </div>
 
         <div class="cleaner"></div>
@@ -63,8 +64,10 @@
     <div id="templatemo_menu">
         <div id="top_nav" class="ddsmoothmenu">
             <ul>
-                <li><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll" target="Frame">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll" target="Frame">Products</a>
+                <li><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"
+                       target="Frame">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"
+                       target="Frame">Products</a>
                     <ul>
                         <li>
                             <a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getEarings"
@@ -81,16 +84,15 @@
                     </ul>
                 </li>
                 <li><a href="faqs.html" target="Frame">FAQs</a></li>
-                <li><a href="checkout.jsp" target="Frame">Chekcout</a></li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/AppServlet?mainAction=getBucket&amp;subAction=getBucketItems"
+                       target="Frame">Chekcout</a></li>
                 <li><a href="contact.html" target="Frame">Contacts</a></li>
             </ul>
             <br style="clear: left"/>
         </div> <!-- end of ddsmoothmenu -->
 
         <div id="menu_second_bar">
-            <div id="top_shopping_cart">
-                Cart: <strong>(!!!!!!!!!!!)3 Products</strong> ( <a href="shoppingcart.jsp" target="Frame">Cart</a> )
-            </div>
             <div class="cleaner"></div>
         </div>
     </div> <!-- END of menu -->
@@ -121,15 +123,19 @@
             </div>
         </div>
 
-        <iframe name="Frame" src="products.jsp"></iframe>
+        <iframe name="Frame" src="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"></iframe>
 
         <div class="cleaner"></div>
     </div> <!-- END of main -->
 
     <div id="templatemo_footer">
-        <p><a href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Home</a> | <a
-                href="${pageContext.request.contextPath}/AppServlet?action=getAll" target="Frame">Products</a> | <a
-                href="faqs.html" target="Frame">FAQs</a> | <a href="checkout.jsp" target="Frame">Chekcout</a> | <a
+        <p><a href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"
+              target="Frame">Home</a> | <a
+                href="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"
+                target="Frame">Products</a> | <a
+                href="faqs.html" target="Frame">FAQs</a> | <a
+                href="${pageContext.request.contextPath}/AppServlet?mainAction=getBucket&amp;subAction=getBucketItems"
+                target="Frame">Chekcout</a> | <a
                 href="contact.html" target="Frame">Contacts</a>
         </p>
         <span style="color: #0099CC; ">Copyright © 2016</span> <span style="color: #000033; ">Samotiazhko. Muhin. Kiparoidze</span>

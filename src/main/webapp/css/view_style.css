@@ -45,10 +45,10 @@ a.more:hover {
 }
 
 tr.products_header {
-	background: #000033;
-	text-align: left;
+    background: #000033;
+    text-align: left;
     font-weight: bold;
-	color: white;
+    color: white;
     font-size: 12px;
 }
 
@@ -178,7 +178,7 @@ h6 {
 
 #content {
     width: 97%;
-    height: 800px;
+    height: 100%;
     background: #f0f0f0;
     border: 1px solid #fff;
     padding: 14px;
@@ -361,8 +361,8 @@ h6 {
 }
 
 .product_box .add_to_card {
-	font-size:14px;
-	font-weight: bold;
+    font-size:14px;
+    font-weight: bold;
     float: left;
     display: block;
     width: 120px;

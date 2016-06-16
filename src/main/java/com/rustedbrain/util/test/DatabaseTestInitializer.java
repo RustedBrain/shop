@@ -5,11 +5,8 @@ import com.rustedbrain.model.Account;
 import com.rustedbrain.model.Item;
 import com.rustedbrain.util.database.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
-import java.net.URISyntaxException;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,6 +19,7 @@ public class DatabaseTestInitializer {
     private static final int TEST_INIT_USERS_COUNT = 10;
     private static final int TEST_INIT_USERS_ITEMS_IN_BUCKET_COUNT = 3;
     private static final int TEST_INIT_USERS_ITEMS_BOUGHT_COUNT = 3;
+    private static final int TEST_INIT_ITEMS_COUNT = 10;
 
     public static void initUsers(Session session) {
         for (int i = 0; i < TEST_INIT_USERS_COUNT; i++) {
@@ -64,7 +62,7 @@ public class DatabaseTestInitializer {
         session.flush();
     }
 
-    public static Accessory createAccessory(int i) {
+    private static Accessory createAccessory(int i) {
         Random random = new Random();
         Accessory accessory = new Accessory();
         accessory.setName("accessory" + i);
@@ -76,11 +74,11 @@ public class DatabaseTestInitializer {
         accessory.setWeight(i);
         accessory.setMale(random.nextBoolean());
         accessory.setDiscount(i);
-        accessory.setStyle(Accessory.ItemStyle.values()[random.nextInt(Accessory.ItemCategory.values().length)]);
+        accessory.setStyle(Accessory.ItemStyle.values()[random.nextInt(Accessory.ItemStyle.values().length)]);
         return accessory;
     }
 
-    public static Account createUser(int i) {
+    private static Account createUser(int i) {
         Account user = new Account();
         user.setLogin("Login" + i);
         user.setName("Name" + i);
@@ -91,20 +89,16 @@ public class DatabaseTestInitializer {
         return user;
     }
 
-    public static void main(String[] args) throws URISyntaxException, SQLException {
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        initUsersItemsBought(session);
-//        System.out.println(session.createCriteria(Account.class).list());
-//        session.close();
-        //Connection connection = DatabaseConnector.getSSLConnection();
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        initUsersItemsBought(session);
+
+    public static void initItems(Session session) {
+        for (int i = 0; i < TEST_INIT_ITEMS_COUNT; i++) {
+            session.saveOrUpdate(createAccessory(i));
+        }
+        session.flush();
         session.close();
-        Session session1 = sessionFactory.openSession();
-        System.out.println(session1.createCriteria(Account.class).list());
-        session1.close();
-        sessionFactory.close();
     }
 
+    public static void main(String[] args) {
+        initItems(HibernateUtil.getSessionFactory().openSession());
+    }
 }

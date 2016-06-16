@@ -1,30 +1,28 @@
 package com.rustedbrain.controller;
 
+import com.rustedbrain.model.GuestSession;
+import com.rustedbrain.util.database.HibernateUtil;
+import org.hibernate.Session;
+
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(
-        description = "This is main app servlet",
-        urlPatterns = "/AppServlet"
-)
+@WebServlet(urlPatterns = "/AppServlet")
 public class AppServlet extends HttpServlet {
 
-    private ServletContext context;
     private Logger logger;
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        this.context = config.getServletContext();
-        this.logger = Logger.getLogger(AppServlet.class.getName());
+    public void init() throws ServletException {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        this.logger = Logger.getLogger(BucketServlet.class.getName());
+        session.createCriteria(GuestSession.class).list().stream().forEach(session::delete);
     }
 
     @Override
@@ -35,24 +33,19 @@ public class AppServlet extends HttpServlet {
 
         switch (action) {
             case getItems: {
-                this.logger.log(Level.INFO, action.name() + " is be carrying now");
                 requestDispatcher = req.getRequestDispatcher("/ItemServlet");
             }
             break;
             case getBucket: {
-                this.logger.log(Level.INFO,action.name() + " is be carrying now");
                 requestDispatcher = req.getRequestDispatcher("/BucketServlet");
             }
             break;
             default: {
-                this.logger.log(Level.INFO, action.name() + "is not defined");
                 requestDispatcher = req.getRequestDispatcher("/error.jsp");
             }
         }
-
         requestDispatcher.forward(req, resp);
     }
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

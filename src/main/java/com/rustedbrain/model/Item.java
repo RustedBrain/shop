@@ -8,6 +8,8 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item extends DatabaseEntity {
 
+    @Column(name = "count")
+    private int count;
     @Column(name = "price")
     private double price;
     @Column(name = "description")
