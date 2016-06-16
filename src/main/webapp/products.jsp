@@ -8,9 +8,10 @@
 
 <body>
 <div id="content" class="float_r">
-    <h1>All products</h1>
-    <div class="product_box">
-        <table cellpadding="5">
+        <table bgcolor="#f0f0f0" cellpadding="5" width="91%" height="100%">
+            <tr>
+                <td colspan="5"><font size="6" color="black"> All products</font></td>
+            </tr>
             <tr class="products_header">
                 <td>name</td>
                 <td>style</td>
@@ -30,20 +31,21 @@
                     <td><c:out value="${ elem.weight }"/></td>
                     <td><p class="product_price">$<c:out value="${elem.price}"/></p></td>
                     <td>
-                        <div class="product_box">
                             <form action="${pageContext.request.contextPath}/AppServlet" method="post">
                                 <input type="hidden" name="mainAction" value="getBucket">
                                 <input type="hidden" name="subAction" value="addItem">
                                 <input type="hidden" name="itemCategory" value=${ elem.category }>
                                 <input type="hidden" name="itemId" value=${ elem.id }>
-                                <input type="submit" value="Add to Cart"/>
+
+                                <input type="submit" value="Add to Cart"
+                                       style="color: whitesmoke; font-size: 12pt;
+                                       font-style: italic; font-weight: bold;
+                                       background-color: #21bdd0; vertical-align: bottom "/>
                             </form>
-                        </div>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-    </div>
 </div>
 <div class="cleaner"></div>
 </body>

@@ -121,7 +121,7 @@
             </div>
         </div>
 
-        <iframe name="Frame" src="products.jsp"></iframe>
+        <iframe name="Frame" src="products.jsp" frameborder="no"></iframe>
 
         <div class="cleaner"></div>
     </div> <!-- END of main -->
