@@ -17,6 +17,7 @@
         <input type="text" style="width:300px;"/>
         City:
         <input type="text" style="width:300px;"/>
+        <br>
         N of post department:
         <input type="text" style="width:300px;"/>
     </div>
@@ -54,7 +55,8 @@
             </td>
         </tr>
     </c:forEach>
-    <h4>TOTAL: <strong>!!!!!!!!!!!!!!!!!!!!!</strong></h4>
+    <br><br><br><br>
+    <h4>TOTAL: <strong> </strong></h4>
 
     <p><input type="checkbox"/>I have accepted the Terms of Use.</p><br/>
 

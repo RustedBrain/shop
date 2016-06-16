@@ -89,7 +89,7 @@
 
         <div id="menu_second_bar">
             <div id="top_shopping_cart">
-                Cart: <strong>(!!!!!!!!!!!)3 Products</strong> ( <a href="shoppingcart.jsp" target="Frame">Cart</a> )
+                ( <a href="shoppingcart.jsp" target="Frame">Cart</a> )
             </div>
             <div class="cleaner"></div>
         </div>

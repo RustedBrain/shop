@@ -40,7 +40,7 @@
 			<tr><td></td><td> </td></tr>
 			<tr>
 				<td align="right" style="background:#ddd; font-weight:bold"> Total </td>
-				<td align="right" style="background:#ddd; font-weight:bold">!!! </td>
+				<td align="right" style="background:#ddd; font-weight:bold"> </td>
 			</tr>
 		</table>
 	</div>
