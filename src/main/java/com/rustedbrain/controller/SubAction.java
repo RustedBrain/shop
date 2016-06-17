@@ -5,5 +5,5 @@ package com.rustedbrain.controller;
  */
 public enum SubAction {
 
-    getWatches, getBraslets, getBreloques, getAll, getEarings, addItem, getBucketItems
+    getWatches, getBraslets, getBreloques, getAll, getEarings, addItem, getBucketItems, deleteItem
 }

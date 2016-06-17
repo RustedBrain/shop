@@ -47,7 +47,7 @@
                 <div class="product_box">
                     <form action="${pageContext.request.contextPath}/AppServlet" method="post">
                         <input type="hidden" name="mainAction" value="getBucket">
-                        <input type="hidden" name="subAction" value="addItem">
+                        <input type="hidden" name="subAction" value="deleteItem">
                         <input type="hidden" name="itemCategory" value=${ elem.category }>
                         <input type="hidden" name="itemId" value=${ elem.id }>
                         <input type="submit" value="Delete"/>

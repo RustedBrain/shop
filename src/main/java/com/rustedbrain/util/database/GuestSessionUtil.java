@@ -58,4 +58,18 @@ public class GuestSessionUtil {
         session.close();
         return itemCategory;
     }
+
+    public static void deleteItemFromBucket(Session session, HttpServletRequest req) {
+        GuestSession guestSession = GuestSessionUtil.getGuestSession(req.getRemoteAddr(), session);
+        List<Item> items = GuestSessionUtil.getItemsBucket(guestSession);
+
+        Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
+        logger.log(Level.INFO, "Accessory " + accessory + " now will be added to guestSession");
+        items.remove(accessory);
+
+        session.saveOrUpdate(guestSession);
+        logger.log(Level.INFO, guestSession + " successfully updated, added " + guestSession.getItemsBucket());
+        session.flush();
+        session.close();
+    }
 }

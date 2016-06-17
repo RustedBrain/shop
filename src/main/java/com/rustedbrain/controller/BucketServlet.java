@@ -38,6 +38,11 @@ public class BucketServlet extends HttpServlet {
         RequestDispatcher requestDispatcher;
 
         switch (action) {
+            case deleteItem: {
+                GuestSessionUtil.deleteItemFromBucket(HibernateUtil.getSessionFactory().openSession(), req);
+                requestDispatcher = req.getRequestDispatcher("/AppServlet?mainAction=getBucket&subAction=getBucketItems");
+            }
+            break;
             case addItem: {
                 Item.ItemCategory itemCategory = GuestSessionUtil.addItemToBucket(HibernateUtil.getSessionFactory().openSession(), req);
 
@@ -71,7 +76,7 @@ public class BucketServlet extends HttpServlet {
                 logger.log(Level.INFO, guestSession + ", items: " + guestSession.getItemsBucket());
                 req.setAttribute("products", ((SessionImplementor) session).getPersistenceContext().unproxy(guestSession.getItemsBucket()));
                 session.close();
-                    requestDispatcher = req.getRequestDispatcher("/checkout.jsp");
+                requestDispatcher = req.getRequestDispatcher("/checkout.jsp");
             }
             break;
             default: {
