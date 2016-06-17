@@ -80,7 +80,7 @@ public class ItemServlet extends HttpServlet {
             }
         }
 
-        req.setAttribute("products", GuestSessionUtil.getGuestSession(req.getRemoteAddr(), session).getItemsBucket().size());
+        req.setAttribute("products", GuestSessionUtil.getItemsBucket(GuestSessionUtil.getGuestSession(req.getRemoteAddr(), session)).size());
         session.close();
         requestDispatcher.forward(req, resp);
     }

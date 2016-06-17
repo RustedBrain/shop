@@ -22,7 +22,7 @@ public class SessionCleaner {
     public SessionCleaner(SessionFactory factory) {
         this.factory = factory;
         this.timer = new Timer(true);
-        this.timer.schedule(new CleanerTask(), TimeUnit.SECONDS.toMillis(30), TimeUnit.MINUTES.toMillis(5));
+        this.timer.schedule(new CleanerTask(), TimeUnit.MINUTES.toMillis(1), TimeUnit.MINUTES.toMillis(5));
     }
 
     private class CleanerTask extends TimerTask {

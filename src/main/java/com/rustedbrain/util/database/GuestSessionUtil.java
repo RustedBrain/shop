@@ -1,9 +1,8 @@
 package com.rustedbrain.util.database;
 
-import com.rustedbrain.model.Accessory;
+import com.rustedbrain.controller.BucketServlet;
 import com.rustedbrain.model.GuestSession;
 import com.rustedbrain.model.Item;
-import com.rustedbrain.model.Watches;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -11,11 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alexey on 16.06.2016.
  */
 public class GuestSessionUtil {
+
+    private static Logger logger = Logger.getLogger(BucketServlet.class.getName());
 
     public static GuestSession getGuestSession(String remoteAddress, Session session) {
         GuestSession guestSession = (GuestSession) session
@@ -47,31 +50,31 @@ public class GuestSessionUtil {
 
         switch (itemCategory) {
             case BRASLETS: {
-                Accessory accessory = (Accessory) session.get(Accessory.class, Integer.valueOf(req.getParameter("itemId").trim()));
+                Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
                 items.add(accessory);
             }
             break;
             case EARINGS: {
-                Accessory accessory = (Accessory) session.get(Accessory.class, Integer.valueOf(req.getParameter("itemId").trim()));
+                Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
                 items.add(accessory);
             }
             break;
             case WATCHES: {
-                Watches watches = (Watches) session.get(Watches.class, Integer.valueOf(req.getParameter("itemId").trim()));
+                Item watches = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
                 items.add(watches);
             }
             break;
             case BRELOQUES: {
-                Accessory accessory = (Accessory) session.get(Accessory.class, Integer.valueOf(req.getParameter("itemId").trim()));
+                Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
                 items.add(accessory);
             }
             break;
         }
 
         session.saveOrUpdate(guestSession);
+        logger.log(Level.INFO, guestSession + " successfully updated, added " + guestSession.getItemsBucket());
         session.flush();
         session.close();
-
         return itemCategory;
     }
 }

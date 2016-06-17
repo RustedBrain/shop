@@ -78,6 +78,7 @@ public class BucketServlet extends HttpServlet {
                 requestDispatcher = req.getRequestDispatcher("/error.jsp");
             }
         }
+
         requestDispatcher.forward(req, resp);
     }
 
