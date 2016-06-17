@@ -123,7 +123,8 @@
             </div>
         </div>
 
-        <iframe name="Frame" src="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"></iframe>
+        <iframe name="Frame" src="${pageContext.request.contextPath}/AppServlet?mainAction=getItems&amp;subAction=getAll"
+                frameborder="no"></iframe>
 
         <div class="cleaner"></div>
     </div> <!-- END of main -->
