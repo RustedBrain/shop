@@ -48,28 +48,9 @@ public class GuestSessionUtil {
 
         Item.ItemCategory itemCategory = Item.ItemCategory.valueOf(req.getParameter("itemCategory").trim().toUpperCase());
 
-        switch (itemCategory) {
-            case BRASLETS: {
-                Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
-                items.add(accessory);
-            }
-            break;
-            case EARINGS: {
-                Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
-                items.add(accessory);
-            }
-            break;
-            case WATCHES: {
-                Item watches = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
-                items.add(watches);
-            }
-            break;
-            case BRELOQUES: {
-                Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
-                items.add(accessory);
-            }
-            break;
-        }
+        Item accessory = (Item) session.get(Item.class, Integer.valueOf(req.getParameter("itemId").trim()));
+        logger.log(Level.INFO, "Accessory " + accessory + " now will be added to guestSession");
+        items.add(accessory);
 
         session.saveOrUpdate(guestSession);
         logger.log(Level.INFO, guestSession + " successfully updated, added " + guestSession.getItemsBucket());
